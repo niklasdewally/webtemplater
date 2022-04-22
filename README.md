@@ -15,7 +15,7 @@ Templates use HTML and the [Jinja](https://jinja.palletsprojects.com/) templatin
 
 
 The following variables are supported in custom templates:
-
+- `css_path` - the relative path of the css file from the html file. The relative pathing is automatically filled in depending on the location of the site in the page.
 - `content.title`
 - `content.subtitle`
 - `content.body` - the body of the article (as HTML).
