@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>{{ content.title }}</title>
+  </head>
+  <body>
+    <div id="main">
+      {% include "header.html" %}
+
+      <div id="content-title">
+        <h1> {{ content.title }} </h1>
+        <p> {{ content.subtitle }}</p>
+      </div>
+      <div id="content">
+        {{ content.body }}
+      </div>
+    </div>
+  </body>
+</html>
