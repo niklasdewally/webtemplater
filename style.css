@@ -4,24 +4,26 @@ body{
 }
 
 header {
-    font-family: sans-serif;
-    padding-top: 10px;
-    padding-left: 20px;
-    padding-right:20px;
+    /*font-family: sans-serif;*/
 }
 
 header h1 {
+    padding-top:20px;
+    font-size:3em;
     font-weight: bold;
-}
-
-#content h1 {
+    text-align:center;
 }
 
 header nav{
     display: flex;
-    padding-top: 3px;
-    padding-right:50px;
+    padding-left:80px;
+    padding-right:80px;
     justify-content: space-between;
+}
+
+header hr {
+    padding-left:80px;
+    padding-right:80px;
 }
 
 header nav a {
@@ -35,7 +37,7 @@ header nav a:hover{
 }
 
 #content {
-    font-family: sans-serif;
+    /*font-family: sans-serif;*/
     padding-top: 2%;
     padding-left: 30px;
     padding-right: 30px;
@@ -45,4 +47,27 @@ header nav a:hover{
     height: 100%;
     max-width: 800px;
     margin: auto;
+}
+
+#content-title {
+    padding-top: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-bottom: 20px;
+}
+
+#content-title h1 {
+    font-weight:bold;
+    font-size: 3em;
+
+}
+
+#content-title p {
+    margin-top: -20px;
+    font-style: italic;
+}
+
+.title {
+    font-size:3em;
+    font-weight: bold;
 }
