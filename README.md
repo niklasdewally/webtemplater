@@ -6,9 +6,10 @@ This was created to scratch a personal itch - pandoc supports a wide range of sy
 
 webtemplater provides configuration options to easily add a custom navbar to pages, and uses a (in my opinion) simpler templating syntax.
 
+## Features
+
 ## Usage
 
-## Configuration
 ## Writing Templates
 
 Templates use HTML and the [Jinja](https://jinja.palletsprojects.com/) templating engine.

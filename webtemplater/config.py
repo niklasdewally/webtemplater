@@ -1,5 +1,5 @@
 import configparser
-from content import Item, Content, NavItems
+from .content import Item, Content, NavItems
 
 
 class Config:
