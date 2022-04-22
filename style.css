@@ -1,6 +1,7 @@
 
 body{
     background-color: Snow;
+    font-family:sans-serif;
 }
 
 header {
@@ -9,7 +10,6 @@ header {
 
 header h1 {
     padding-top:20px;
-    font-size:3em;
     font-weight: bold;
     text-align:center;
 }
@@ -43,6 +43,14 @@ header nav a:hover{
     padding-right: 30px;
 }
 
+.centered p{
+    text-align:center;
+}
+
+.centered h2{
+    text-align:center;
+}
+
 #main {
     height: 100%;
     max-width: 800px;
@@ -50,16 +58,13 @@ header nav a:hover{
 }
 
 #content-title {
-    padding-top: 20px;
+    padding-top:  10px;
     padding-left: 30px;
     padding-right: 30px;
-    margin-bottom: 20px;
 }
 
 #content-title h1 {
     font-weight:bold;
-    font-size: 3em;
-
 }
 
 #content-title p {
@@ -67,7 +72,6 @@ header nav a:hover{
     font-style: italic;
 }
 
-.title {
-    font-size:3em;
-    font-weight: bold;
+#submenu h1{
 }
+
