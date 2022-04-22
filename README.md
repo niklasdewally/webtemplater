@@ -2,12 +2,13 @@
 
 A simple static-site generator using python and pandoc.
 
-This was created to scratch a personal itch - pandoc supports a wide range of syntax, and handles math impeccably, but making full size sites with it is cumbersome and messy.
+This was created to scratch a personal itch - pandoc supports a wide range of syntax, and handles math impeccably, but making full size sites with it is cumbersome and involves some [bash](http://hamwaves.com/pandoc/article/en/makefile) [magic](https://wstyler.ucsd.edu/posts/pandoc_website.html). Also, changing things like navigation links would require manually editing each template.
 
 webtemplater provides configuration options to easily add a custom navbar to pages, and uses a (in my opinion) simpler templating syntax.
 
 ## Usage
 
+## Configuration
 ## Writing Templates
 
 Templates use HTML and the [Jinja](https://jinja.palletsprojects.com/) templating engine.
