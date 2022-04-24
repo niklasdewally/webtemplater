@@ -1,8 +1,8 @@
 import configparser
-from .content import Item, Content, NavItems
+from .page_elements import NavItem, PageContent, NavItemList
 
 
-class Config:
+class ConfigParser:
     def __init__(self, path: str):
         self.file = path
         self.config = configparser.ConfigParser()
@@ -14,8 +14,8 @@ class Config:
         self.navitems = []
         for (label, href) in self._parse_section("navlinks").items():
             # strip quotes just in case
-            self.navitems.append(Item(href.strip('"'), label))
-        self.navitems = NavItems(self.navitems)
+            self.navitems.append(NavItem(href.strip('"'), label))
+        self.navitems = NavItemList(self.navitems)
 
     def _parse_globals(self):
         dic = self._parse_section("site")

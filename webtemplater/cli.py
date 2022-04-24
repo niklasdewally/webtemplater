@@ -1,8 +1,12 @@
-from .generator import Generator
-from .config import Config
+from .generator import SiteGenerator
+from .config import ConfigParser
 
 
 def main():
-    config = Config("config.ini")
-    generator = Generator(config)
+    config = ConfigParser("config.ini")
+    generator = SiteGenerator(config)
     generator.create_site()
+
+
+if __name__ == "__main__":
+    main()
