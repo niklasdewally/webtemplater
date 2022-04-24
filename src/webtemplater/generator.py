@@ -8,6 +8,7 @@ from .page_elements import PageContent
 
 from shutil import copy2 as copy
 
+
 def convert_to_html(path: Path) -> str:
     """
     Convert a file to html using pandoc.
@@ -64,8 +65,7 @@ class SiteGenerator:
                 output_path.write_text(page)
 
     def _setup_site_dir(self):
-                Path("./site").mkdir(exist_ok=True)
-                if not os.path.exists("./templates/style.css"):
-                    raise FileNotFoundError("templates/style.css not found!")
-                copy("templates/style.css","site/style.css",follow_symlinks=True)
-
+        Path("./site").mkdir(exist_ok=True)
+        if not os.path.exists("./templates/style.css"):
+            raise FileNotFoundError("templates/style.css not found!")
+        copy("templates/style.css", "site/style.css", follow_symlinks=True)
