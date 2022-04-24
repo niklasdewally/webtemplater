@@ -1,4 +1,6 @@
 from pathlib import Path
+import os
+import validators
 
 
 class PageContent:
@@ -28,10 +30,14 @@ class NavItemList:
     def set_paths_relative_to(self, directory: Path):
         """
         Set the links of the nav items as if they were a relative path from the given directory.
+
+        Ignores URL links.
         """
-        # TODO:
-        # Assume, for now, all links are paths
+        new_items = []
         for item in self.originalitems:
-            new_path = os.reldir(item.href, directory)
-            new_items.append(NavItem(new_path, item.caption))
+            if not validators.url(item.href):
+                new_path = os.path.relpath(item.href, directory)
+                new_items.append(NavItem(new_path, item.caption))
+            else:
+                new_items.append(item)
         self.items = new_items

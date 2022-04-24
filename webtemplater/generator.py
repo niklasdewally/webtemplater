@@ -51,7 +51,7 @@ class SiteGenerator:
                 content.subtitle = ""
 
                 # Update nav links
-                self.nav.set_paths_relative_to(output_path.parent)
+                self.nav.set_paths_relative_to(output_path.parent.relative_to("site"))
 
                 page = self.template.render(
                     nav=self.nav, content=content, css_path=css_path
