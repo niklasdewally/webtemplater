@@ -6,6 +6,7 @@ from .config import ConfigParser
 from pathlib import Path
 from .page_elements import PageContent
 
+from shutil import copy2 as copy
 
 def convert_to_html(path: Path) -> str:
     """
@@ -33,6 +34,7 @@ class SiteGenerator:
 
     def create_site(self):
         ##https://stackoverflow.com/questions/19587118/iterating-through-directories-with-python
+        self._setup_site_dir()
         for file_path in Path(self.content_root).glob("**/*"):
             if file_path.is_file():
 
@@ -60,3 +62,10 @@ class SiteGenerator:
                 # Create output dir(s) and save html file
                 output_path.parent.mkdir(parents=True, exist_ok=True)
                 output_path.write_text(page)
+
+    def _setup_site_dir(self):
+                Path("./site").mkdir(exist_ok=True)
+                if not os.path.exists("./templates/style.css"):
+                    raise FileNotFoundError("templates/style.css not found!")
+                copy("templates/style.css","site/style.css",follow_symlinks=True)
+
