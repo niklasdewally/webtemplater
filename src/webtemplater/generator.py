@@ -32,6 +32,7 @@ class SiteGenerator:
         self.template = env.get_template("content.html")
         self.nav = config.navitems
         self.content_root = config.content_root
+        self.site_root = config.site_root
 
     def create_site(self):
         ##https://stackoverflow.com/questions/19587118/iterating-through-directories-with-python
@@ -39,12 +40,12 @@ class SiteGenerator:
         for file_path in Path(self.content_root).glob("**/*"):
             if file_path.is_file():
 
-                output_path = Path("./site").joinpath(
+                output_path = Path(self.site_root).joinpath(
                     file_path.with_suffix(".html").relative_to(self.content_root)
                 )
 
                 # Get backwards relative path from html file to css file
-                css_path = os.path.relpath("site/style.css", output_path.parent)
+                css_path = os.path.relpath(self.site_root + "/style.css", output_path.parent)
                 print("Processed " + output_path.as_posix())
 
                 # Generate content
@@ -54,7 +55,7 @@ class SiteGenerator:
                 content.subtitle = ""
 
                 # Update nav links
-                self.nav.set_paths_relative_to(output_path.parent.relative_to("site"))
+                self.nav.set_paths_relative_to(output_path.parent.relative_to(self.site_root))
 
                 page = self.template.render(
                     nav=self.nav, content=content, css_path=css_path
@@ -68,4 +69,4 @@ class SiteGenerator:
         Path("./site").mkdir(exist_ok=True)
         if not os.path.exists("./templates/style.css"):
             raise FileNotFoundError("templates/style.css not found!")
-        copy("templates/style.css", "site/style.css", follow_symlinks=True)
+        copy("templates/style.css", self.site_root + "/style.css", follow_symlinks=True)

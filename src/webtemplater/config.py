@@ -20,6 +20,7 @@ class ConfigParser:
     def _parse_globals(self):
         dic = self._parse_section("site")
         self.content_root = dic["contentroot"]
+        self.site_root=dic["siteroot"]
 
     def _parse_section(self, section: str):
         return self.config[section]
