@@ -9,6 +9,9 @@ webtemplater also deals with relative paths in navlinks, so links can be defined
 
  It provides easy configuration options to add a custom navbar to pages, and uses a (in my opinion) simpler templating syntax.
 
+## Usage
+Generate the necessary site directories and files using `python3 -m webtemplater init`.
+Add content, edit the configuration to add navlinks if required, then generate the html using `python3 -m webtemplater gen`.
 ## Example
 
 For a working example, see [example/](example/).
