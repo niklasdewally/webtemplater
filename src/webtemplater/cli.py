@@ -63,8 +63,14 @@ def make_config(args):
             conf.set("site", "siteroot", args.site_dir)
             conf.set("site", "templateroot", args.template_dir)
             conf.set("navlinks", "; Put nav-bar links here!")
-            conf.set("navlinks","; these can either be urls, or links relative to the site root")
-            conf.set("navlinks", "; note that all links to generated pages need to end in .html not md!")
+            conf.set(
+                "navlinks",
+                "; these can either be urls, or links relative to the site root",
+            )
+            conf.set(
+                "navlinks",
+                "; note that all links to generated pages need to end in .html not md!",
+            )
             conf.set("navlinks", "; example:")
             conf.set("navlinks", "; Home Page = home.html")
             conf.set("navlinks", "; Docs = docs/index.html")

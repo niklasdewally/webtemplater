@@ -33,35 +33,42 @@ class SiteGenerator:
         self._setup_site_dir()
         for file_path in Path(self.content_root).glob("**/*"):
             if file_path.is_file():
+                if file_path.suffix == ".md":
+                    output_path = Path(self.site_root).joinpath(
+                        file_path.with_suffix(".html").relative_to(self.content_root)
+                    )
 
-                output_path = Path(self.site_root).joinpath(
-                    file_path.with_suffix(".html").relative_to(self.content_root)
-                )
+                    # Get backwards relative path from html file to css file
+                    css_path = os.path.relpath(
+                        self.site_root + "/style.css", output_path.parent
+                    )
+                    print("Processed " + output_path.as_posix())
 
-                # Get backwards relative path from html file to css file
-                css_path = os.path.relpath(
-                    self.site_root + "/style.css", output_path.parent
-                )
-                print("Processed " + output_path.as_posix())
+                    # Generate content
+                    content = PageContent()
+                    content.body = convert_to_html(file_path)
+                    content.title = get_title(file_path)
+                    # content.subtitle = get_subtitle(file_path)
 
-                # Generate content
-                content = PageContent()
-                content.body = convert_to_html(file_path)
-                content.title = get_title(file_path)
-                # content.subtitle = get_subtitle(file_path)
+                    # Update nav links
+                    self.nav.set_paths_relative_to(
+                        output_path.parent.relative_to(self.site_root)
+                    )
 
-                # Update nav links
-                self.nav.set_paths_relative_to(
-                    output_path.parent.relative_to(self.site_root)
-                )
+                    page = self.template.render(
+                        nav=self.nav, content=content, css_path=css_path
+                    )
 
-                page = self.template.render(
-                    nav=self.nav, content=content, css_path=css_path
-                )
+                    # Create output dir(s) and save html file
+                    output_path.parent.mkdir(parents=True, exist_ok=True)
+                    output_path.write_text(page)
 
-                # Create output dir(s) and save html file
-                output_path.parent.mkdir(parents=True, exist_ok=True)
-                output_path.write_text(page)
+                else:
+                    output_path = Path(self.site_root).joinpath(
+                        file_path.relative_to(self.content_root)
+                    )
+                    output_path.parent.mkdir(parents=True, exist_ok=True)
+                    copy(file_path, output_path)
 
     def _setup_site_dir(self):
         Path("./site").mkdir(exist_ok=True)
