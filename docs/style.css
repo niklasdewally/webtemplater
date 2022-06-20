@@ -1,0 +1,75 @@
+
+body{
+    background-color: Snow;
+    font-family:sans-serif;
+    font-size:110%;
+}
+
+#main {
+    height: 100%;
+    max-width: 800px;
+    margin: auto;
+}
+
+header {
+    /*font-family: sans-serif;*/
+}
+
+header h1 {
+    padding-top:20px;
+    font-weight: bold;
+    text-align:center;
+}
+
+header nav{
+    display: flex;
+    padding-left:80px;
+    padding-right:80px;
+    justify-content: space-between;
+}
+
+header hr {
+    padding-left:80px;
+    padding-right:80px;
+}
+
+header nav a {
+   color: black; 
+   text-decoration: none;
+}
+
+header nav a:hover{
+   color: black; 
+   text-decoration: underline;
+}
+
+#content-title {
+    padding-top:  10px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+#content-title h1 {
+    font-weight:bold;
+}
+
+#content-title p {
+    margin-top: -20px;
+    font-style: italic;
+}
+
+#content {
+    padding-top: 2%;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+#home-content {
+    padding-top: 30%;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.centered {
+    text-align:center;
+}
