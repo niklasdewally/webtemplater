@@ -1,0 +1,8 @@
+<header>
+  <nav>
+    {% for item in nav %}
+      <a href = "{{ item.href }}">{{ item.caption }}</a>
+    {% endfor %}
+  </nav>
+  <hr>
+</header>

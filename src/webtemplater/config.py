@@ -21,6 +21,7 @@ class ConfigParser:
         dic = self._parse_section("site")
         self.content_root = dic["contentroot"]
         self.site_root = dic["siteroot"]
+        self.template_root = dic["templateroot"]
 
     def _parse_section(self, section: str):
         return self.config[section]
