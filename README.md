@@ -9,11 +9,14 @@ webtemplater provides easy configuration options to add a custom navbar to pages
 
 ## Example
 
-For a working example, see [/example/README.md].
-## Instlalation From Source
+For a working example, see [example/](example/).
+## Installation From Source
+[Pandoc](https://pandoc.org/) is required.
 
 ```sh
 # Clone the git repo
 git clone github.com/niklasdewally/webtemplater
 cd webtemplater
 # Install the cloned project as a python module
+pip install -e .
+```
