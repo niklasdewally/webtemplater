@@ -6,6 +6,9 @@ class ConfigParser:
     def __init__(self, path: str):
         self.file = path
         self.config = configparser.ConfigParser()
+        # https://stackoverflow.com/a/19359720
+        # Ensure config does not auto-lower case everything!
+        config.optionxform = str
         self.config.read(path)
         self._parse_navlinks()
         self._parse_globals()
