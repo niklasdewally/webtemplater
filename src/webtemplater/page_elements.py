@@ -5,9 +5,9 @@ import validators
 
 class PageContent:
     def __init__(self):
-        self.title = "Hello World"
-        self.subtitle = "Hey all, scott here!"
-        self.body = "<b>Hello World</b>"
+        self.title = ""
+        self.subtitle = ""
+        self.body = ""
 
 
 class NavItem:

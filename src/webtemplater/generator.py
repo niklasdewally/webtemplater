@@ -1,28 +1,22 @@
+from dbus import MissingReplyHandlerException
 import jinja2
 import configparser
 import os
 import subprocess
+import json
 from .config import ConfigParser
 from pathlib import Path
 from .page_elements import PageContent
+from .pandoc import convert_to_html, get_metadata_value
 
 from shutil import copy2 as copy
 
 
-def convert_to_html(path: Path) -> str:
-    """
-    Convert a file to html using pandoc.
-
-    path: a Path object representing the file to be converted to html.
-
-    Returns: a string containing the html
-    """
-
-    return subprocess.run(
-        ["pandoc", "-t", "html", "--shift-heading-level-by", "1", path.resolve()],
-        capture_output=True,
-        encoding="UTF-8",
-    ).stdout
+def get_title(path: Path) -> str:
+    metadata = get_metadata_value("title", path)
+    if metadata is None:
+        return path.stem
+    return metadata
 
 
 class SiteGenerator:
@@ -35,7 +29,7 @@ class SiteGenerator:
         self.site_root = config.site_root
 
     def create_site(self):
-        ##https://stackoverflow.com/questions/19587118/iterating-through-directories-with-python
+        # https://stackoverflow.com/questions/19587118/iterating-through-directories-with-python
         self._setup_site_dir()
         for file_path in Path(self.content_root).glob("**/*"):
             if file_path.is_file():
@@ -45,17 +39,21 @@ class SiteGenerator:
                 )
 
                 # Get backwards relative path from html file to css file
-                css_path = os.path.relpath(self.site_root + "/style.css", output_path.parent)
+                css_path = os.path.relpath(
+                    self.site_root + "/style.css", output_path.parent
+                )
                 print("Processed " + output_path.as_posix())
 
                 # Generate content
                 content = PageContent()
                 content.body = convert_to_html(file_path)
-                content.title = file_path.stem
-                content.subtitle = ""
+                content.title = get_title(file_path)
+                # content.subtitle = get_subtitle(file_path)
 
                 # Update nav links
-                self.nav.set_paths_relative_to(output_path.parent.relative_to(self.site_root))
+                self.nav.set_paths_relative_to(
+                    output_path.parent.relative_to(self.site_root)
+                )
 
                 page = self.template.render(
                     nav=self.nav, content=content, css_path=css_path

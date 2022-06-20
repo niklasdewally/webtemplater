@@ -10,8 +10,12 @@ def main():
     # https://majornetwork.net/2020/05/subcommands-with-argument-parsing-in-python/
     subparsers = parser.add_subparsers(dest="command")
     parser_init = subparsers.add_parser("init", help="initialise a new website")
-    parser_init.add_argument("-c","--content-dir",help="specify the content dir",default="./content")
-    parser_init.add_argument("-s","--site-dir",help="specify the site dir",default="./site")
+    parser_init.add_argument(
+        "-c", "--content-dir", help="specify the content dir", default="./content"
+    )
+    parser_init.add_argument(
+        "-s", "--site-dir", help="specify the site dir", default="./site"
+    )
     parser_gen = subparsers.add_parser("gen", help="generate website content")
 
     args = parser.parse_args()
@@ -50,8 +54,8 @@ def _init_config(args):
             conf = configparser.ConfigParser(allow_no_value=True)
             conf.add_section("site")
             conf.add_section("navlinks")
-            conf.set("site", "contentroot",args.content_dir)
-            conf.set("site", "siteroot",args.site_dir)
+            conf.set("site", "contentroot", args.content_dir)
+            conf.set("site", "siteroot", args.site_dir)
             conf.set("navlinks", "; Put nav-bar links here!")
             conf.set("navlinks", "; linkname = linkdestination")
             conf.write(f)
