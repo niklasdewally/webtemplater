@@ -22,6 +22,8 @@
     
       <a href = "commands.html">Command Reference</a>
     
+      <a href = "https://www.github.com/niklasdewally/webtemplater">Github</a>
+    
   </nav>
   <hr>
 </header>
@@ -32,8 +34,31 @@
       
     </div>
     <div id="content">
-      <h2 id="webtemplater-init">webtemplater init</h2>
-<h2 id="webtemplater-generate">webtemplater generate</h2>
+      <div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">usage:</span> python3 <span class="at">-m</span> webtemplater [-h] <span class="dt">{init</span><span class="op">,</span><span class="dt">gen}</span> ...</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">positional</span> arguments:</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">{init</span><span class="op">,</span><span class="dt">gen}</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">init</span>      initialise a new website</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">gen</span>       generate website content</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">options:</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-h,</span> <span class="at">--help</span>  show this help message and exit</span></code></pre></div>
+<h2 id="webtemplater-init">webtemplater init</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">usage:</span> python3 <span class="at">-m</span> webtemplater init [-h] [-c CONTENT_DIR] [-s SITE_DIR] [-T TEMPLATE_DIR]</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">options:</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-h,</span> <span class="at">--help</span>            show this help message and exit</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-c</span> CONTENT_DIR, <span class="at">--content-dir</span> CONTENT_DIR</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                        <span class="ex">specify</span> the content dir</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-s</span> SITE_DIR, <span class="at">--site-dir</span> SITE_DIR</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>                        <span class="ex">specify</span> the site dir</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-T</span> TEMPLATE_DIR, <span class="at">--template-dir</span> TEMPLATE_DIR</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>                        <span class="ex">specify</span> the template dir</span></code></pre></div>
+<h2 id="webtemplater-gen">webtemplater gen</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">usage:</span> python3 <span class="at">-m</span> webtemplater gen [-h]</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">options:</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-h,</span> <span class="at">--help</span>  show this help message and exit</span></code></pre></div>
 
     </div>
   </div>
