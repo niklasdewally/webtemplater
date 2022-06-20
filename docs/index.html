@@ -1,32 +1,38 @@
 <html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="style.css">
-      <title>webtemplater</title>
-  </head>
-  <body>
-    <div id="main">
-      <header>
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+  </script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <title>webtemplater</title>
+</head>
+
+<body>
+  <div id="main">
+    <header>
   <nav>
     
-      <a href = "index.html">webtemplater</a>
+      <a href = "index.html">home</a>
     
       <a href = "docs/commands.html">command reference</a>
-    
-      <a href = "docs/installation.html">installation</a>
-    
-      <a href = "https://github.com/niklasdewally/webtemplater">github</a>
     
   </nav>
   <hr>
 </header>
 
     
-      <div id="content-title">
-        <h1> webtemplater </h1>
-    
-      </div>
-      <div id="content">
-        <p>webtemplater is a simple static-site generator using python and pandoc.</p>
+    <div id="content-title">
+      <h1> webtemplater </h1>
+      
+    </div>
+    <div id="content">
+      <p>webtemplater is a simple static-site generator using python and pandoc.</p>
 <h2 id="features">Features</h2>
 <ul>
 <li>Easy configuration of navbar links, and automatic resolution of links between different subdirectories.</li>
@@ -34,7 +40,8 @@
 <li>All the power of <a href="https://pandoc.org/">pandoc</a> for generating content from markdown files, including <span class="math inline">$\frac{math}{support}$</span>.</li>
 </ul>
 
-      </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>

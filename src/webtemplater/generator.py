@@ -21,7 +21,7 @@ def get_title(path: Path) -> str:
 
 class SiteGenerator:
     def __init__(self, config: ConfigParser):
-        templateLoader = jinja2.FileSystemLoader(searchpath="./templates")
+        templateLoader = jinja2.FileSystemLoader(searchpath=config.template_root)
         env = jinja2.Environment(loader=templateLoader)
         self.template = env.get_template("content.html")
         self.nav = config.navitems

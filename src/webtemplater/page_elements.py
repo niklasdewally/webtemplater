@@ -6,7 +6,7 @@ import validators
 class PageContent:
     def __init__(self):
         self.title = ""
-        self.subtitle = ""
+        #self.subtitle = ""
         self.body = ""
 
 
